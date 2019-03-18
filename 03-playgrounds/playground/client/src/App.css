@@ -1,0 +1,120 @@
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align:justify;
+    /*margin-left:auto; margin-right:auto;
+    width:20%;*/
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    align:center;
+}
+
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+ /* padding: 15px 32px;*/
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+/*  font-size: 16px;
+  margin: 4px 2px;*/
+  cursor: pointer;
+
+  width:50;  
+}
+
+body {
+  margin:5px;
+
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow: auto;
+}
+
+.content {
+  grid-area: content;
+  position: relative;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+
+.App {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 200px 550px 550px;
+        grid-template-rows: 150px 500px 50px;
+        grid-template-areas:
+        "header  header  header"
+        "sidebar content content"
+        "footer footer footer";
+     
+        background-color: #fff;
+        color: #444;
+        
+        /*
+          height:768px;
+  width:1300px;*/
+    }
+
+    
+    
+    
+
+.boxdiv {
+  background-color: #444;
+  color: #fff;
+ /* border-radius: 5px;*/
+  padding: 10px;
+  font-size: 75%;
+/*    width: "100%";*/
+  /*marginLeft: 50px;*/
+}
+
+.header,
+.footer{
+  background-color: #999;
+}
+
+.sidebar{
+  background-color: #555;
+}
+
+
+.form{
+    left:0px;
+    width:30%;
+}
+.currentInfo{
+      display: flex;
+  flex-direction: row;
+    left:10;
+    border:1px solid white;
+    width:70%;
+    position:relative;
+    padding:5px;
+}
+/*
+.gm-style-iw{
+     background-color: #555;
+}*/
+
+
+
+
