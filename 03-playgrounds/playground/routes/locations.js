@@ -3,7 +3,7 @@ var router = express.Router();
 const OpenWeatherMapHelper = require("openweathermap-node");
 const helper = new OpenWeatherMapHelper(
     {
-	APPID: '30c2aa576b6b3cb1e230334a18c3287e',
+	APPID: 'YOURAPIKEY',
 	units: "metric"
     }
 );
@@ -14,7 +14,7 @@ var options = {
  
   // Optional depending on the providers
   httpAdapter: 'https', // Default
-  apiKey: 'AIzaSyDm-EpTfg6Ezn464ARGaNTJWmKiV8jKsJo', // for Mapquest, OpenCage, Google Premier
+  apiKey: 'YOURAPIKEY', // for Mapquest, OpenCage, Google Premier
   formatter: null         // 'gpx', 'string', ...
 };
 

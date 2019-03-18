@@ -5,73 +5,73 @@ import {Webgl} from './Webgl';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 class App extends Component {
-  constructor(props) {
-     super(props);
-     this.state = {
-         zoom:14,
-       value: '',
-       locations:[],currentLocation:[],
-       showingInfoWindow: true
-     }
-     
-         this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-   }
-    
-    
-    
-  //state = {locations:[],currentLocation:[]}
+  constructor(props)
+  {
+      super(props);
+      this.state = {
+          zoom: 14,
+          value: '',
+          locations: [], currentLocation: [],
+          showingInfoWindow: true
+      }
 
-  
-  
-  
-    componentDidMount(){
-	fetch("/locations")
-	    .then(res=> res.json())
-	    .then(locations =>this.setState({locations: locations,currentLocation:locations[0]}));
-    }
-   
-   handleChange(event) {
-    this.setState({value: event.target.value});
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  handleSubmit(event) {      
-      
-    event.preventDefault(); 
     
-    fetch('/locations/create', {
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({location: this.state.value})
-    })
-    .then(res=> res.json())
-    .then(location => (
-        this.setState({value:'',locations:this.state.locations.concat(location)}),
-        alert('Created Location:' + location.location)
-    )   );
-    //    needs catch on error
+
+  
+  componentDidMount()
+  {
+      fetch("/locations")
+          .then(res => res.json())
+          .then(locations => this.setState({locations: locations, currentLocation: locations[0]}));
+  }
+   
+   handleChange(event)
+   {
+       this.setState({value: event.target.value});
+   }
+
+  handleSubmit(event)
+  {
+
+      event.preventDefault();
+
+      fetch('/locations/create', {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({location: this.state.value})
+      })
+          .then(res => res.json())
+          .then(location => (
+              this.setState({value: '', locations: this.state.locations.concat(location)}),
+                  alert('Created Location:' + location.location)
+          ));
+      //    needs catch on error
   }
   
-   clickMe(location)  {
+   clickMe(location)
+   {
 
-     this.setState({
-       currentLocation: location
-     });
-     
-        //this.forceUpdate();
-  
+       this.setState({
+           currentLocation: location
+       });
+
+
    }
    
-    render() {
+   render()
+   {
 
     return (
-        
-	    
-	  
+
+
+
 
 <div className="App">
   <div className="boxdiv header">
-  
+
   <div className="form">
    <h1>Locations</h1>
         <form onSubmit={this.handleSubmit} >
@@ -91,19 +91,19 @@ class App extends Component {
               <Webgl index={Math.random()} temp={this.state.currentLocation.temp + " C"}></Webgl>
       </div>
       </div>
-      
-      
+
+
   </div>
-  
+
   <div className="boxdiv sidebar">
-  
-  
+
+
 	    <div >
-	    
+
             <ul >
                 {this.state.locations.map( location =>
                     <li key={location.id}>
-                    
+
                     {location.location} {location.temp.toFixed(2)}C
                     <br></br>
                     <button onClick={() => this.clickMe(location)}>View</button>
@@ -112,16 +112,16 @@ class App extends Component {
                     </li>
                 )}
             </ul>
-	    
-            
-      
+
+
+
        </div>
-  
+
   </div>
   <div className="boxdiv content">
-           <div style={{height: '100%', 
-                        width: '100%', 
-                        display: 'flex', 
+           <div style={{height: '100%',
+                        width: '100%',
+                        display: 'flex',
                         align:'center',
                         position: 'relative',
                         padding: 0,
@@ -145,8 +145,8 @@ class App extends Component {
 </div>
 
 
-     
-       
+
+
     );
   }
 }
@@ -154,5 +154,5 @@ class App extends Component {
 //export default App;
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDm-EpTfg6Ezn464ARGaNTJWmKiV8jKsJo'
+  apiKey: 'YOURAPIKEY'
 })(App)

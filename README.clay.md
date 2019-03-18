@@ -42,6 +42,12 @@ you will need to run npm install in both playground and playground/client
 in playground you can set up table u need with
 sequelize db:migrate
 
+you will also need to replace the google and openmap keys in
+playground\routes\locations.js
+and
+playground\client\src\App.js
+
+
 then run npm start in both directories and you should be all good
 
 
